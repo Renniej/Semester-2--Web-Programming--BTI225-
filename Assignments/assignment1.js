@@ -9,31 +9,42 @@ var grader = function(perc){
 
 var grade;
 
+    
 
-if (perc < 50 ){
+//self-explaintory
+    
+if (isFinite(perc)){    
+    
+  if (perc < 50 ){
 
-    grade  = "F";
+      grade  = "F";
 
-}
+  }
 
-else if (perc < 60){
+  else if (perc < 60){
     grade = "D";
-}
-
-else if (perc < 70){
+  }
+  
+  else if (perc < 70){
     grade = "C";
-}
+  }
 
-else if (perc < 80){
+  else if (perc < 80){
     grade = "B";
-}
+  }
 
-else if (perc > 80){
+  else if (perc > 80){
     grade = "A";
-}
+  }  
 
-return grade;
+ 
 
+   }
+    else{
+        grade = "Invalid percentage";
+    }
+    
+    return grade;
 }
 
 
@@ -48,18 +59,26 @@ return grade;
 function showMultiples(num, numMultiples){
 
 
-    equation[numMultiples];
-    
-    console.log("\n")
+    equation = ""; // Note: String to represent output method
 
- 
-for (i = 0 ; i > numMultiples; ++i  ){
-
-    product= num * (i+1)
-   equation[i] = "\n" num + " x " + (i+1) + "=" + product + "\n" 
-}
     
-   return equation;
+ if (isFinite(num) && isFinite(numMultiples)){   
+    console.log("\n") //required by instructions
+
+
+    for (i = 0 ; i < numMultiples; ++i  ){  //calculate product then add full solution to string
+
+        product= num * (i+1); //calculates
+       equation += ("\n" +  num + " x " + (i+1) + "=" + product + "\n" ); //adds full solution to string for evenutal console output
+    }
+
+     
+ }
+  else{
+      equation = "INVALID PARAMETERS"
+  }
+    
+   return equation; 
     
 
 }
@@ -77,10 +96,12 @@ var largerNum = function(num1, num2){
 largest = 0;
 
 
-    if(num1 == NaN|| num2 == NaN){
+    if( !isFinite(num1) || !isFinite(num2)){ //check if parameters are a number
 
-        largest = NaN;
+        largest = "Invalid parameters"; 
     }
+    
+    //self-explaintory
     else if (num1 < num2){
 
         largest=  num2;
@@ -102,23 +123,28 @@ return largest;
 
 function tempConvert(temperature, convert){
 
-    finaltemp;
-
+  
+//self-explaintory
+    
+ if( (convert == "FC" || convert == "CF")  &&  isFinite(temperature)     )  {
     if (convert == "FC"){
 
-       finaltemp = (temperature -32) * 5/9;
-
+       finaltemp = (temperature -32) * 5/9;  //F to C conversion formula
+       finaltemp = Math.round(finaltemp*10)/10 //round to nearest decimal
     }
 
-    else if(conver =="CF"){
-        finaltemp = temperature * 9/5 + 32;
+    else if(convert =="CF"){
+        finaltemp = temperature * 9/5 + 32; //C to F conversion formula
+        finaltemp = Math.round(finaltemp*10)/10 //round to nearest decimal
     }
 
-    else{
-        finaltemp = NaN;
+
+    }     
+else{ //if convert variable isnt a valid selection
+        finaltemp = "Conversion method not valid";
     }
 
-return Math.round(finaltemp * 10)/10;
+return finaltemp
 
 }
 
@@ -131,22 +157,36 @@ return Math.round(finaltemp * 10)/10;
 
 var evenNumbers = function(minNumber, maxNumber){
 
-    EvenNumbers = "";
+    
 
-    tempNum;
-
-    if (minNumber%2  != 0){
-        minNumber++;
+ if (isFinite(minNumber) && isFinite(maxNumber)){
+    
+    if (minNumber%2  != 0){  //check if minNumber is a even number
+        minNumber++; //if not start minNumber at nearest & highest even Number
     }
+    
+    
+    
+    EvenNumbers = String(minNumber); //Create string for eventual console output
+    
+    tempNum = minNumber;  //Set a tempNum variable to handle calculations
 
-    EvenNumbers += minNumber;
-
-    for(i = minNumber; tempNum < maxNumber; ++i){
-        tempNum += 2;
+    
+    
+    for(i = minNumber; tempNum < maxNumber; ++i){  //Prepare string for all even numbers
+         tempNum += 2;
         EvenNumbers += "," + tempNum
+      
     }
 
-    return EvenNumbers;
+   }
+ else {
+     EvenNumbers = "Invalid parameters";
+ }
+    
+    
+    
+    return EvenNumbers; //return completed string
 
 }
 
@@ -162,19 +202,33 @@ var evenNumbers = function(minNumber, maxNumber){
 
  passingAverage = function(){
 
-    var sum;
-    var Pass;
+    var sum = 0;
+    var Pass
 
-    for (i = 0; i < arguments.length; ++i){
+    for (i = 0; i < arguments.length; ++i){  //add up all grades
+        
+        if (!isFinite(arguments[i])){
+            Pass = "INVALID PARAMETERS"
+            break;
+        }
+        
         sum += arguments[i];
+        
+        
     }
-
+if (Pass == undefined){
     if (sum/arguments.length > 49){
+        
         Pass = true;
     }
     else {
         Pass = false;
     }
+}
+     else{
+         Pass = "INVALID PARAMETERS"
+     }
+     
 
 return Pass;
 
@@ -277,30 +331,6 @@ console.log('counter() returns: ' + count);
 console.log('invoking the function returns: ' + count());
 console.log('invoking the function returns: ' + count());
 console.log('invoking the function returns: ' + count());
-/*
-Exception: SyntaxError: invalid increment/decrement operand
-@Scratchpad/1:139
-*/
-/*
-Exception: ReferenceError: D is not defined
-grader@Scratchpad/1:20:5
-@Scratchpad/1:221:38
-*/
-/*
-Exception: ReferenceError: isNAN is not defined
-largerNum@Scratchpad/1:75:1
-@Scratchpad/1:237:47
-*/
-/*
-Exception: ReferenceError: finaltemp is not defined
-tempConvert@Scratchpad/1:100:5
-@Scratchpad/1:245:48
-*/
-/*
-Exception: SyntaxError: unexpected token: identifier
-@Scratchpad/1:59
-*/
-/*
-Exception: SyntaxError: unexpected token: identifier
-@Scratchpad/1:59
-*/
+
+
+
