@@ -31,18 +31,15 @@ var CustomerDB = {
 
 
 customers : [],
-
-
-
+    
 addresses : [],
 stores :[],
 
 
-insertData = function(allData){ //insertData from AllData into approperiate arrays
+insertData : function(Data){ //insertData from AllData into approperiate arrays
 
-    for (i = 0; i < arguments.length; ++i){  //Scan entire allData Array of Objects
-
-      switch(allData[i]){  //Check each object for it's type & insert to correct DB accordingly
+    for (i = 0; i < Data.length; ++i){  //Scan entire allData Array of Objects 
+      switch(Data[i].type){  //Check each object for it's type & insert to correct DB accordingly
 
         case "customer":
             console.log("TYPE: CUSTOMER")
@@ -55,6 +52,7 @@ insertData = function(allData){ //insertData from AllData into approperiate arra
         case "store" :
             console.log("TYPE: STORE")
         break;
+             
 
       }
 
@@ -67,6 +65,8 @@ insertData = function(allData){ //insertData from AllData into approperiate arra
 
 
 };
+
+CustomerDB.insertData(allData)
 
 
  /*  Write your CustomerDB Object Here.  Do not forget to uncomment the "TEST DATA" section
@@ -143,3 +143,7 @@ CustomerDB.outputAllAddresses();
 console.log("--------------------------\n\n"); 
 
 */
+
+
+
+
