@@ -27,7 +27,46 @@ var allData = [
     {type:"address", data:{address_id: 5464, address: "11 New St. Apt 2B", city: "Brampton", province: "ON", postal_code: "L694R7"}},
 ];
 
+var CustomerDB = {
 
+
+customers : [],
+
+
+
+addresses : [],
+stores :[],
+
+
+insertData = function(allData){ //insertData from AllData into approperiate arrays
+
+    for (i = 0; i < arguments.length; ++i){  //Scan entire allData Array of Objects
+
+      switch(allData[i]){  //Check each object for it's type & insert to correct DB accordingly
+
+        case "customer":
+            console.log("TYPE: CUSTOMER")
+        break;
+
+        case "address" :
+            console.log("TYPE: ADDRESS")
+        break;
+
+        case "store" :
+            console.log("TYPE: STORE")
+        break;
+
+      }
+
+
+    }
+    
+}
+
+
+
+
+};
 
 
  /*  Write your CustomerDB Object Here.  Do not forget to uncomment the "TEST DATA" section
