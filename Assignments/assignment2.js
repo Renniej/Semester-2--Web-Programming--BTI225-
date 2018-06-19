@@ -30,11 +30,34 @@ var allData = [
 
 
 
+
+
  /*  Write your CustomerDB Object Here.  Do not forget to uncomment the "TEST DATA" section
      when you're ready.  Your code is required to run against these tests before you submit */
 
+CustomerDB = {
+    function(Data) { //insertData from AllData into approperiate arrays
 
+        for (i = 0; i < Data.length; ++i) { //Scan entire allData Array of Objects
+            switch (Data[i].type) { //Check each object for it's type & insert to correct DB accordingly
 
+                case "customer":
+                    console.log("TYPE: CUSTOMER")
+                    break;
+
+                case "address":
+                    console.log("TYPE: ADDRESS")
+                    break;
+
+                case "store":
+                    console.log("TYPE: STORE")
+                    break;
+
+            }
+
+        }
+
+    }}
 
 /**********************************
  *          TEST DATA             *
