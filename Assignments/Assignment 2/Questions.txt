@@ -1,5 +1,5 @@
-1. in the CustomerDB.insertData()  If i set the for loop condition to i < arguments.length checks the first object
-   verses when I set it to Data.length and it checks all the objects in allData. Why is this?
+in the CustomerDB.insertData()  If i set the for loop condition to i < arguments.length checks the first object
+verses when I set it to Data.length and it checks all the objects in allData. Why is this?
 
 
 Code: insertData : function(Data){ //insertData from AllData into approperiate arrays
