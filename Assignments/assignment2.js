@@ -36,7 +36,7 @@ var allData = [
      when you're ready.  Your code is required to run against these tests before you submit */
 
 CustomerDB = {
-    function(Data) { //insertData from AllData into approperiate arrays
+    insertData : function(Data) { //insertData from AllData into approperiate arrays
 
         for (i = 0; i < Data.length; ++i) { //Scan entire allData Array of Objects
             switch (Data[i].type) { //Check each object for it's type & insert to correct DB accordingly
@@ -58,6 +58,10 @@ CustomerDB = {
         }
 
     }}
+
+
+
+    CustomerDB.insertData(allData);
 
 /**********************************
  *          TEST DATA             *
