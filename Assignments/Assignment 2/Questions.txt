@@ -1,0 +1,28 @@
+1. in the CustomerDB.insertData()  If i set the for loop condition to i < arguments.length checks the first object
+   verses when I set it to Data.length and it checks all the objects in allData. Why is this?
+
+
+Code: insertData : function(Data){ //insertData from AllData into approperiate arrays
+
+    for (i = 0; i < Data.length; ++i){  //Scan entire allData Array of Objects 
+      switch(Data[i].type){  //Check each object for it's type & insert to correct DB accordingly
+
+        case "customer":
+            console.log("TYPE: CUSTOMER")
+        break;
+
+        case "address" :
+            console.log("TYPE: ADDRESS")
+        break;
+
+        case "store" :
+            console.log("TYPE: STORE")
+        break;
+             
+
+      }
+
+
+    }
+    
+}
