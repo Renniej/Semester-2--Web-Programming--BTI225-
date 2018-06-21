@@ -65,7 +65,7 @@ CustomerDB = {
          //Made variable(s) for better readability (So when I view code again I can actually tell what it's printing and why)
          Name = "\nCustomer "  + customers[Arr_Index].customer_id + ": " + customers[Arr_Index].first_name + " " + customers[Arr_Index].last_name + " (" + customers[Arr_Index].email + ")\n";
                 
-         Home_Address = "CALLING getAddressByID FUNC"
+         Home_Address = this.getAddressById(customers[Arr_Index].address_id);
         
          console.log(Name + Home_Address + "\n" + customers[Arr_Index].add_date );
          
@@ -115,7 +115,9 @@ CustomerDB = {
 
     outputCustomerByStore : function(str_id){
 
-        console.log("\nSTORE NAME FUNCTION REQUIRED HERE");
+        Store_Name = this.getStoreById(str_id);
+
+        console.log("\nCustomers in Store: " + Store_Name);
         
         for ( i = 0; i < customers.length; ++i){
 
@@ -131,7 +133,19 @@ CustomerDB = {
 
 
     address : [],
+
+    getAddressById : function(id){
+
+        return "getAddressById not coded";
+
+    },
+
     stores : [],
+
+    getStoreById : function(id){
+
+        return "GetStoreById not yet coded";
+    },
 
 
 
