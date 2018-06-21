@@ -26,3 +26,9 @@ Code: insertData : function(Data){ //insertData from AllData into approperiate a
     }
     
 }
+
+
+
+
+Why do I need to use the this keyboard to reference attributes within the same scope shouldn't shadowing 
+take effect or at the least "this" should be assumed just like in c++?

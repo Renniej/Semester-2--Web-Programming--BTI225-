@@ -36,6 +36,48 @@ var allData = [
      when you're ready.  Your code is required to run against these tests before you submit */
 
 CustomerDB = {
+
+
+    customers : [],
+
+    
+    addCustomer : function(New_customer){
+
+        customers = this.customers;
+
+        customers.push(New_customer); //Add new customer object to customers array
+
+        customers[customers.length - 1].add_date = new Date(); //Adds data object containing current date & time
+        
+    },
+
+    outputCustomerByID : function(cust_id){
+
+        customers = this.customers;
+
+        for ( i = 0; i < customers.length; ++i){
+
+            if (customers[i].customer_id == cust_id) {
+               
+
+                Name = "Customer "  + customers[i].customer_id + ": " + customers[i].first_name + " " + customers[i].last_name + " (" + customers[i].email + ")"  
+                
+
+            }
+
+
+        }
+
+
+    },
+
+
+    address : [],
+    stores : [],
+
+
+
+
     insertData : function(Data) { //insertData from AllData into approperiate arrays
 
         for (i = 0; i < Data.length; ++i) { //Scan entire allData Array of Objects
@@ -43,6 +85,7 @@ CustomerDB = {
 
                 case "customer":
                     console.log("TYPE: CUSTOMER")
+                    this.addCustomer(Data[i].data)
                     break;
 
                 case "address":
@@ -57,11 +100,16 @@ CustomerDB = {
 
         }
 
-    }}
+    }
+
+
+
+}
 
 
 
     CustomerDB.insertData(allData);
+    CustomerDB.outputCustomerByID(26);
 
 /**********************************
  *          TEST DATA             *
