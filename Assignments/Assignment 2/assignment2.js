@@ -53,13 +53,27 @@ CustomerDB = {
 
         customers.push(New_customer); //Add new customer object to customers array
 
-        if (customers[customers.length - 1].add_date == null || customers[customers.length - 1].add_date == "undefined" ){ //check if object does not have a valid date
+        if (customers[customers.length - 1].add_date == null  || customers[customers.length - 1].add_date == "undefined" ){ //check if object does not have a valid date
 
             customers[customers.length - 1].add_date = new Date(); //Adds data object containing current date & time
-      
         }
+        
+    },
 
-        console.log(customers[customers.length - 1].add_date);
+    outputCustomer(Arr_Index){ //Made this to avoid code duplication in outputCustomerByID & OutputAllCustomers functions
+
+         //Made variable(s) for better readability (So when I view code again I can actually tell what it's printing and why)
+         Name = "\nCustomer "  + customers[Arr_Index].customer_id + ": " + customers[Arr_Index].first_name + " " + customers[Arr_Index].last_name + " (" + customers[Arr_Index].email + ")\n";
+                
+         Home_Address = "CALLING getAddressByID FUNC"
+        
+         console.log(Name + Home_Address + "\n" + customers[Arr_Index].add_date );
+         
+         /*
+         Customer 26: Dave Bennett (dbennett@gmail.com)
+         Home Address: 3945 John St., Ajax, ON L7M4T9
+         Joined: Wed Feb 01 2017 22:13:22 GMT-0500 (EST)
+        */
     },
 
     outputCustomerByID : function(cust_id){
@@ -70,31 +84,47 @@ CustomerDB = {
 
             if (customers[i].customer_id == cust_id) { //if parameter matches customer_id then print customer details
                
-
-                //Made variables for better readability (So when I view code again I can actually tell what it's printing and why)
-                Name = "Customer "  + customers[i].customer_id + ": " + customers[i].first_name + " " + customers[i].last_name + " (" + customers[i].email + ")\n";
-                
-                Home_Address = "CALLING getAddressByID FUNC \n"
-
-                DateJoined = "Joined: " + day[customers[i].add_date.getDay()] + " " +month[customers[i].add_date.getMonth()] + " " + customers[i].add_date.getDate() + " " + customers[i].add_date.getFullYear() + " ";
-                           
-                         //  Get the hour (0-23) : Get the minute (0-59) : Get the second (0-59)
-                TimeJoined =  (customers[i].add_date.getHours() + 1) + ":" + (customers[i].add_date.getMinutes() + 1) + ":" + (customers[i].add_date.getSeconds() + 1) + "\n\n";
-
-                console.log(Name + Home_Address + DateJoined + TimeJoined);
-                
-                /*
-                Customer 26: Dave Bennett (dbennett@gmail.com)
-                Home Address: 3945 John St., Ajax, ON L7M4T9
-                Joined: Wed Feb 01 2017 22:13:22 GMT-0500 (EST)
-               */
-
+                this.outputCustomer(i);
+               
             }
 
 
         }
 
 
+    },
+
+    outputAllCustomers : function(){
+
+        customers = this.customers
+        
+        if (customers.length > 0){
+
+            console.log("All Customers:")
+
+            for (i = 0; i < customers.length; ++i){ 
+                this.outputCustomer(i);
+            }
+            
+        }
+        else{
+            console.log("CUSTOMER ARRAY IS EMPTY");
+        }
+
+    },
+
+    outputCustomerByStore : function(str_id){
+        
+        for ( i = 0; i < customers.length; ++i){
+
+            if (customers[i].store_id == str_id) { //if parameter matches customer_id then print customer details
+    
+                this.outputCustomer(i);
+               
+            }
+
+
+        }
     },
 
 
@@ -135,7 +165,7 @@ CustomerDB = {
 
 
     CustomerDB.insertData(allData);
-    CustomerDB.outputCustomerByID(26);
+    CustomerDB.outputCustomerByStore(297);
 
 /**********************************
  *          TEST DATA             *
