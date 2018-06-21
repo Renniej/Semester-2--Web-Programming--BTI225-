@@ -114,6 +114,8 @@ CustomerDB = {
     },
 
     outputCustomerByStore : function(str_id){
+
+        console.log("\nSTORE NAME FUNCTION REQUIRED HERE");
         
         for ( i = 0; i < customers.length; ++i){
 
