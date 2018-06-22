@@ -31,10 +31,6 @@ var allData = [
 
 
 
-// Below used for date method(attribute) functions
-month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-day = ["Sunday", "Monday" , "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] // 0 = Sunday
-
 
 
 
@@ -117,28 +113,148 @@ CustomerDB = {
 
         Store_Name = this.getStoreById(str_id);
 
-        console.log("\nCustomers in Store: " + Store_Name);
+        if (Store_Name != "N/A"){
+            console.log("\nCustomers in Store: " + Store_Name);
         
-        for ( i = 0; i < customers.length; ++i){
+            for ( var i = 0; i < customers.length; ++i){
 
             if (customers[i].store_id == str_id) { //if parameter matches customer_id then print customer details
     
                 this.outputCustomer(i);
-               
+              
+                
+
+            }
+
+
+            }
+        }
+    },
+
+    removeCustomerById : function(id){
+        
+            
+        customers = this.customers;
+        
+        for ( var k = 0; k < customers.length; ++k){
+
+            if (customers[k].customer_id == id) { //if parameter matches customer_id then print customer details
+                
+
+                Addy_To_Be_Removed = customers[k].address_id; 
+
+                
+                customers.splice(k, 1); // Removes person from array
+                this.removeAddressById(Addy_To_Be_Removed)
+                
+
             }
 
 
         }
+
+
     },
 
 
-    address : [],
+    addresses : [],
+
+    getAddress : function(Arr_Index){ //Made to avoid code duplication in GetAddressById & OutputAllAddresses
+
+        addresses = this.addresses
+
+        street = addresses[Arr_Index].address;
+        city = addresses[Arr_Index].city;
+        province = addresses[Arr_Index].province;
+        postal_code = addresses[Arr_Index].postal_code;
+
+        Address = street + ", " + city + ", " + province + ", " + postal_code;
+
+        return Address;
+    },
+
+    addAdress : function(addy){
+        this.addresses.push(addy);
+    },
 
     getAddressById : function(id){
 
-        return "getAddressById not coded";
+       addresses = this.addresses 
+       Addy = "N/A"
+
+       for ( var i = 0; i < addresses.length; ++i){
+
+            if (addresses[i].address_id == id) { //if parameter matches customer_id then print customer details
+            
+                //3945 John St., Ajax, ON L7M4T9 
+
+               
+                Addy = this.getAddress(i);
+        
+             }
+        }      
+
+        return Addy;
 
     },
+
+    outputAllAddresses : function(){
+
+        addresses = this.addresses; 
+        console.log("\nAll Addresses: \n")
+
+        for (var i = 0; i < addresses.length; ++i){
+            console.log("Address " + addresses[i].address_id + ": " + this.getAddress(i) + "\n");
+
+
+        }
+
+
+
+
+
+    },
+
+    removeAddressById : function(Addy_id){
+
+
+        //console.log(Addy_id)
+        addresses = this.addresses
+        customers = this.customers;
+
+        Delete_Index = -1;
+
+        for (var i = 0; i < addresses.length; ++i) {
+
+            
+
+           if (addresses[i].address_id == Addy_id){
+                Delete_Index = i;
+
+                //console.log("MATCH FOUND! SHOULD I DELETE??????")
+
+                for (var n = 0; n < customers.length; ++n){
+
+                    if (customers[n].address_id == Addy_id){
+                        //console.log("NOPE, NO DELETING BUDDY!")
+                        Delete_Index = -1;
+                    }
+
+                }
+
+           }
+
+        }
+
+        if (Delete_Index != -1){
+            //console.log("YEP WE ARE DELETING IT!")
+            addresses.splice(Delete_Index, 1);
+        }
+
+    },
+
+
+
 
     stores : [],
 
@@ -156,12 +272,12 @@ CustomerDB = {
             switch (Data[i].type) { //Check each object for it's type & insert to correct DB accordingly
 
                 case "customer":
-                    console.log("TYPE: CUSTOMER")
                     this.addCustomer(Data[i].data)
                     break;
 
                 case "address":
-                    console.log("TYPE: ADDRESS")
+                    console.log("ADDRESS")
+                    this.addAdress(Data[i].data);
                     break;
 
                 case "store":
@@ -181,7 +297,10 @@ CustomerDB = {
 
 
     CustomerDB.insertData(allData);
-    CustomerDB.outputCustomerByStore(297);
+  
+
+  
+    
 
 /**********************************
  *          TEST DATA             *
