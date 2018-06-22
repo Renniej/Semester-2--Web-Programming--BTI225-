@@ -41,226 +41,271 @@ CustomerDB = {
 
 
     customers : [],
-
     
-    addCustomer : function(New_customer){
+        addCustomer : function(New_customer){
 
-        customers = this.customers;
+            customers = this.customers;
 
-        customers.push(New_customer); //Add new customer object to customers array
+            customers.push(New_customer); //Add new customer object to customers array
 
-        if (customers[customers.length - 1].add_date == null  || customers[customers.length - 1].add_date == "undefined" ){ //check if object does not have a valid date
+            if (customers[customers.length - 1].add_date == null  || customers[customers.length - 1].add_date == "undefined" ){ //check if object does not have a valid date
 
-            customers[customers.length - 1].add_date = new Date(); //Adds data object containing current date & time
-        }
-        
-    },
-
-    outputCustomer(Arr_Index){ //Made this to avoid code duplication in outputCustomerByID & OutputAllCustomers functions
-
-         //Made variable(s) for better readability (So when I view code again I can actually tell what it's printing and why)
-         Name = "\nCustomer "  + customers[Arr_Index].customer_id + ": " + customers[Arr_Index].first_name + " " + customers[Arr_Index].last_name + " (" + customers[Arr_Index].email + ")\n";
-                
-         Home_Address = this.getAddressById(customers[Arr_Index].address_id);
-        
-         console.log(Name + Home_Address + "\n" + customers[Arr_Index].add_date );
-         
-         /*
-         Customer 26: Dave Bennett (dbennett@gmail.com)
-         Home Address: 3945 John St., Ajax, ON L7M4T9
-         Joined: Wed Feb 01 2017 22:13:22 GMT-0500 (EST)
-        */
-    },
-
-    outputCustomerByID : function(cust_id){
-
-        customers = this.customers; 
-
-        for ( i = 0; i < customers.length; ++i){
-
-            if (customers[i].customer_id == cust_id) { //if parameter matches customer_id then print customer details
-               
-                this.outputCustomer(i);
-               
-            }
-
-
-        }
-
-
-    },
-
-    outputAllCustomers : function(){
-
-        customers = this.customers
-        
-        if (customers.length > 0){
-
-            console.log("All Customers:")
-
-            for (i = 0; i < customers.length; ++i){ 
-                this.outputCustomer(i);
+                customers[customers.length - 1].add_date = new Date(); //Adds data object containing current date & time
             }
             
-        }
-        else{
-            console.log("CUSTOMER ARRAY IS EMPTY");
-        }
+        },
 
-    },
+        outputCustomer(Arr_Index){ //Made this to avoid code duplication in outputCustomerByID & OutputAllCustomers functions
 
-    outputCustomerByStore : function(str_id){
-
-        Store_Name = this.getStoreById(str_id);
-
-        if (Store_Name != "N/A"){
-            console.log("\nCustomers in Store: " + Store_Name);
-        
-            for ( var i = 0; i < customers.length; ++i){
-
-            if (customers[i].store_id == str_id) { //if parameter matches customer_id then print customer details
-    
-                this.outputCustomer(i);
-              
-                
-
-            }
-
-
-            }
-        }
-    },
-
-    removeCustomerById : function(id){
-        
+            //Made variable(s) for better readability (So when I view code again I can actually tell what it's printing and why)
+            Name = "\nCustomer "  + customers[Arr_Index].customer_id + ": " + customers[Arr_Index].first_name + " " + customers[Arr_Index].last_name + " (" + customers[Arr_Index].email + ")\n";
+                    
+            Home_Address = "Home Address: " + this.getAddressById(customers[Arr_Index].address_id);
             
-        customers = this.customers;
-        
-        for ( var k = 0; k < customers.length; ++k){
+            console.log(Name + Home_Address + "\n" + customers[Arr_Index].add_date );
+            
+            /*
+            Customer 26: Dave Bennett (dbennett@gmail.com)
+            Home Address: 3945 John St., Ajax, ON L7M4T9
+            Joined: Wed Feb 01 2017 22:13:22 GMT-0500 (EST)
+            */
+        },
 
-            if (customers[k].customer_id == id) { //if parameter matches customer_id then print customer details
-                
+        outputCustomerById : function(cust_id){
 
-                Addy_To_Be_Removed = customers[k].address_id; 
+            customers = this.customers; 
 
+            for ( i = 0; i < customers.length; ++i){
+
+                if (customers[i].customer_id == cust_id) { //if parameter matches customer_id then print customer details
                 
-                customers.splice(k, 1); // Removes person from array
-                this.removeAddressById(Addy_To_Be_Removed)
+                    this.outputCustomer(i);
                 
+                }
+
 
             }
 
 
-        }
+        },
+
+        outputAllCustomers : function(){
+
+            customers = this.customers
+            
+            if (customers.length > 0){
+
+                console.log("All Customers:")
+
+                for (i = 0; i < customers.length; ++i){ 
+                    this.outputCustomer(i);
+                }
+                
+            }
+            else{
+                console.log("CUSTOMER ARRAY IS EMPTY");
+            }
+
+        },
+
+        outputCustomersByStore : function(str_id){
+
+            
+            Store_Name = this.getStoreById(str_id);
+           
+            if (Store_Name != "N/A"){
+                console.log("\nCustomers in Store: " + Store_Name);
+            
+                for ( var i = 0; i < customers.length; ++i){
+
+                if (customers[i].store_id == str_id) { //if parameter matches customer_id then print customer details
+        
+                    this.outputCustomer(i);
+                
+                    
+
+                }
 
 
-    },
+                }
+            }
+        },
+
+        removeCustomerById : function(id){
+            
+                
+            customers = this.customers;
+            
+            for ( var k = 0; k < customers.length; ++k){
+
+                if (customers[k].customer_id == id) { //if parameter matches customer_id then print customer details
+                    
+
+                    Addy_To_Be_Removed = customers[k].address_id; 
+
+                    
+                    customers.splice(k, 1); // Removes person from array
+                    this.removeAddressById(Addy_To_Be_Removed)
+                    
+
+                }
+
+
+            }
+
+
+        },
 
 
     addresses : [],
 
-    getAddress : function(Arr_Index){ //Made to avoid code duplication in GetAddressById & OutputAllAddresses
+        getAddress : function(Arr_Index){ //Made to avoid code duplication in GetAddressById & OutputAllAddresses
 
-        addresses = this.addresses
+            addresses = this.addresses
 
-        street = addresses[Arr_Index].address;
-        city = addresses[Arr_Index].city;
-        province = addresses[Arr_Index].province;
-        postal_code = addresses[Arr_Index].postal_code;
+            street = addresses[Arr_Index].address;
+            city = addresses[Arr_Index].city;
+            province = addresses[Arr_Index].province;
+            postal_code = addresses[Arr_Index].postal_code;
 
-        Address = street + ", " + city + ", " + province + ", " + postal_code;
+            Address = street + ", " + city + ", " + province + ", " + postal_code;
 
-        return Address;
-    },
+            return Address;
+        },
 
-    addAdress : function(addy){
-        this.addresses.push(addy);
-    },
+        addAdress : function(addy){
+            this.addresses.push(addy);
+        },
 
-    getAddressById : function(id){
+        getAddressById : function(id){
 
-       addresses = this.addresses 
-       Addy = "N/A"
+        addresses = this.addresses 
+        Addy = "N/A"
 
-       for ( var i = 0; i < addresses.length; ++i){
+        for ( var i = 0; i < addresses.length; ++i){
 
-            if (addresses[i].address_id == id) { //if parameter matches customer_id then print customer details
+                if (addresses[i].address_id == id) { //if parameter matches customer_id then print customer details
+                
+                    //3945 John St., Ajax, ON L7M4T9 
+
+                
+                    Addy = this.getAddress(i);
             
-                //3945 John St., Ajax, ON L7M4T9 
+                }
+            }      
 
-               
-                Addy = this.getAddress(i);
-        
-             }
-        }      
+            return Addy;
 
-        return Addy;
+        },
 
-    },
+        outputAllAddresses : function(){
 
-    outputAllAddresses : function(){
+            addresses = this.addresses; 
+            console.log("\nAll Addresses: \n")
 
-        addresses = this.addresses; 
-        console.log("\nAll Addresses: \n")
-
-        for (var i = 0; i < addresses.length; ++i){
-            console.log("Address " + addresses[i].address_id + ": " + this.getAddress(i) + "\n");
+            for (var i = 0; i < addresses.length; ++i){
+                console.log("Address " + addresses[i].address_id + ": " + this.getAddress(i) + "\n");
 
 
-        }
+            }
 
 
 
 
 
-    },
+        },
 
-    removeAddressById : function(Addy_id){
+        removeAddressById : function(Addy_id){
 
 
-        //console.log(Addy_id)
-        addresses = this.addresses
-        customers = this.customers;
+            //console.log(Addy_id)
+            addresses = this.addresses
+            customers = this.customers;
 
-        Delete_Index = -1;
+            Delete_Index = -1;
 
-        for (var i = 0; i < addresses.length; ++i) {
+            for (var i = 0; i < addresses.length; ++i) {
 
-            
+                
 
-           if (addresses[i].address_id == Addy_id){
-                Delete_Index = i;
+            if (addresses[i].address_id == Addy_id){
+                    Delete_Index = i;
 
-                //console.log("MATCH FOUND! SHOULD I DELETE??????")
+                    //console.log("MATCH FOUND! SHOULD I DELETE??????")
 
-                for (var n = 0; n < customers.length; ++n){
+                    for (var n = 0; n < customers.length; ++n){
 
-                    if (customers[n].address_id == Addy_id){
-                        //console.log("NOPE, NO DELETING BUDDY!")
-                        Delete_Index = -1;
+                        if (customers[n].address_id == Addy_id){
+                            //console.log("NOPE, NO DELETING BUDDY!")
+                            Delete_Index = -1;
+                        }
+
                     }
 
-                }
+            }
 
-           }
+            }
 
-        }
+            if (Delete_Index != -1){
+                //console.log("YEP WE ARE DELETING IT!")
+                addresses.splice(Delete_Index, 1);
+            }
 
-        if (Delete_Index != -1){
-            //console.log("YEP WE ARE DELETING IT!")
-            addresses.splice(Delete_Index, 1);
-        }
-
-    },
+        },
 
 
 
 
     stores : [],
 
+    addStore(New_Store){
+
+        stores = this.stores;
+        stores.push(New_Store);
+        //console.log(New_Store.name)
+    },
+
     getStoreById : function(id){
 
-        return "GetStoreById not yet coded";
+        stores = this.stores;
+
+        Store = "N/A"
+        
+        for (var i = 0; i < stores.length; ++i ){
+            
+            if (stores[i].store_id == id){
+                Store = stores[i].name;
+            }
+
+        }
+
+        return Store;
+    
+
+    },
+
+    outputAllStores : function(){
+
+        stores = this.stores
+
+        if (stores.length > 0){
+
+            console.log("\nAll Stores")
+
+            for (var i = 0; i < stores.length; ++i){
+
+                
+
+                Name = stores[i].name;
+                Locat = this.getAddressById(stores[i].address_id);
+
+                console.log("\nStore " + stores[i].store_id + ": " + Name + "\n" + "Location: " + Locat)
+
+            }
+
+
+        }
+
     },
 
 
@@ -276,12 +321,12 @@ CustomerDB = {
                     break;
 
                 case "address":
-                    console.log("ADDRESS")
                     this.addAdress(Data[i].data);
                     break;
 
                 case "store":
-                    console.log("TYPE: STORE")
+                    
+                    this.addStore(Data[i].data)
                     break;
 
             }
@@ -296,8 +341,8 @@ CustomerDB = {
 
 
 
-    CustomerDB.insertData(allData);
-  
+   // CustomerDB.insertData(allData);
+    //CustomerDB.outputAllStores();
 
   
     
@@ -318,7 +363,7 @@ CustomerDB = {
  *  correctness                   *
  **********************************/
 
-/*
+
 
 // Insert all Data into the Database
 
@@ -369,4 +414,4 @@ console.log("CustomerDB.outputAllAddresses();\n\n--------------------------\n\n"
 CustomerDB.outputAllAddresses();
 console.log("--------------------------\n\n"); 
 
-*/
+
