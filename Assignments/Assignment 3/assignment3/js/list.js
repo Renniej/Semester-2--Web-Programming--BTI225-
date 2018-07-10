@@ -13,8 +13,8 @@ var directory = [
 
 
 window.onload = function(){
-CreateDirectory();
 ListFruits();
+CreateDirectory();
 };
 
 function CreateDirectory (child){ //child parameter tells us if we are modifying a child directory
@@ -22,7 +22,7 @@ function CreateDirectory (child){ //child parameter tells us if we are modifying
 //Was made in a way so even a directory type can have a directory type without this function breaking/producing invalid results
 
     var curFolder = "";
-    var NewDirectory = document.createElement("UL")
+    var NewDirectory = document.createElement("UL");
 
    if (child){ //if we dealing with a child folder then set curFolder to child.files
        curFolder = child.files;
@@ -33,18 +33,19 @@ function CreateDirectory (child){ //child parameter tells us if we are modifying
        
    };
 
-
-
     for (var i = 0; i < curFolder.length; ++i){
 
+        
       
         
         if (curFolder[i].type == "file"){
 
                 
             var file = document.createElement("LI"); //create new list element
+            var text = document.createTextNode(curFolder[i].name);
 
-            file.innerHTML = curFolder[i].name;
+            file.appendChild(text);
+           
         
             NewDirectory.appendChild(file);
 
@@ -64,13 +65,14 @@ function CreateDirectory (child){ //child parameter tells us if we are modifying
     }
 
  
-    if (child){
+    if (child){ 
  
-        //creates header dictating what directory it is
+        //creates list item for parent dictating what directory it is
         folder_name = document.createElement("LI");
-        folder_name.innerHTML = child.name;
-
-        folder_name.appendChild(NewDirectory)
+        var text = document.createTextNode(child.name); 
+      
+        folder_name.appendChild(text);
+        folder_name.appendChild(NewDirectory);
 
         return folder_name;
     }
@@ -96,8 +98,9 @@ function ListFruits(){
     for (var i = 0; i < fruits.length; ++i){//Create a new ordered list object for each fruit
 
         var List_Item = document.createElement("LI");
-        List_Item.innerHTML = fruits[i];
-        
+        var text = document.createTextNode(fruits[i]); 
+
+        List_Item.appendChild(text);
         Fruit_List.appendChild(List_Item); //Add new fruit list item to ordered List(Fruit_List)
     }
 

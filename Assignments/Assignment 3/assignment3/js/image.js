@@ -7,3 +7,51 @@ var images = [
     {caption: "Azerbaijan Forest", alt: "Forest", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Azerbaijan_forest_3.JPG/320px-Azerbaijan_forest_3.JPG"},
     {caption: "Indonesian Jungle", alt: "Jungle", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Indonesian_jungle3%2C_Zoo_Prague.jpg/320px-Indonesian_jungle3%2C_Zoo_Prague.jpg"}
 ];
+
+
+
+window.onload = DisplayImages();
+
+function DisplayImages(){
+
+    
+   var html_ID = document.getElementById("HTML_Images");
+
+    for (var i = 0; i < images.length; ++i){
+
+        
+
+        figure = document.createElement("FIGURE");
+        img = document.createElement("IMG");
+        caption = document.createElement("CAPTION");
+        hyperlink = document.createElement("A");
+
+
+        caption.appendChild(document.createTextNode(images[i].caption));
+
+        img.setAttribute("src", images[i].url);
+        img.setAttribute("alt", images[i].alt);
+
+        hyperlink.setAttribute("href", images[i].hyperlink);
+
+
+        
+        hyperlink.appendChild(img);
+
+        figure.appendChild(caption);
+        figure.appendChild(hyperlink);
+        
+
+
+        html_ID.appendChild(figure);
+
+        
+
+ 
+
+        
+
+    }
+
+
+}
