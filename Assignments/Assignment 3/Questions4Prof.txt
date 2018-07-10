@@ -1,0 +1,11 @@
+// If i do window.onload = DisplayImages(); then html_ID gets defined as null 
+// but if i do it the way below it find the id.  Why is this??????
+
+
+window.onload = function  (){
+
+    
+   var html_ID = document.getElementById("HTML_Images");
+    console.log(html_ID);
+
+}

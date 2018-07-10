@@ -9,43 +9,41 @@ var images = [
 ];
 
 
+// If i do window.onload = DisplayImages(); then html_ID gets defined as null 
+// but if i do it the way below it find the id.  Why is this??????
 
-window.onload = DisplayImages();
 
-function DisplayImages(){
+window.onload = function  (){
 
     
    var html_ID = document.getElementById("HTML_Images");
+   // console.log(html_ID);  //Used to check that html_ID exist
 
-    for (var i = 0; i < images.length; ++i){
+    for (var i = 0; i < images.length; ++i){ //Create objects
 
         
 
         figure = document.createElement("FIGURE");
         img = document.createElement("IMG");
-        caption = document.createElement("CAPTION");
+        caption = document.createElement("H4");
         hyperlink = document.createElement("A");
 
 
-        caption.appendChild(document.createTextNode(images[i].caption));
+        caption.appendChild(document.createTextNode(images[i].caption)); 
 
         img.setAttribute("src", images[i].url);
         img.setAttribute("alt", images[i].alt);
 
-        hyperlink.setAttribute("href", images[i].hyperlink);
-
+        hyperlink.setAttribute("href", images[i].url); 
 
         
-        hyperlink.appendChild(img);
+        hyperlink.appendChild(img); //img object gains a hyper link
 
+        figure.appendChild(hyperlink); // img+hyperlink at put into figure container
         figure.appendChild(caption);
-        figure.appendChild(hyperlink);
-        
 
 
         html_ID.appendChild(figure);
-
-        
 
  
 

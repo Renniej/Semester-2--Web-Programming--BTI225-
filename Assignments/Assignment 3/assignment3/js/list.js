@@ -79,7 +79,7 @@ function CreateDirectory (child){ //child parameter tells us if we are modifying
 
     else{ //if we are at root then print out tree
         
-        (document.getElementById("Best Video Game Genres and Examples")).appendChild(NewDirectory);
+        (document.getElementById("videogames")).appendChild(NewDirectory);
     }
 
 }
@@ -89,7 +89,7 @@ function CreateDirectory (child){ //child parameter tells us if we are modifying
 function ListFruits(){
 
     
-    var Parent = document.getElementById("Best Video Game Genres and Examples");
+    var Parent = document.getElementById("videogames");
     
 
     var Fruit_List = document.createElement("OL"); //Create new ordered list object

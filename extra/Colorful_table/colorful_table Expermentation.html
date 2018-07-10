@@ -2,7 +2,7 @@
 
 <body>
 
-<input type = "buttom" value = "Generate Table" onclick="getTableValues()" ></input>
+<input type = "buttom" value = "Generate Table" onclick="generate_table()" ></input>
 
 </body>
 
@@ -11,7 +11,10 @@ function getTableValues(){
 var body = document.getElementsByTagName("body")[0];
 
 RowInput = document.createElement("input")
+ColoumInput = document.createElement("input")
+
 body.appendChild(RowInput)
+body.appendChild(ColoumInput)
 
 
 }
