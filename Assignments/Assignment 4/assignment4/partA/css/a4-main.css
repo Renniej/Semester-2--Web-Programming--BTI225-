@@ -1,1 +1,55 @@
 /* Place all of your CSS Code in this file */
+
+body{
+    background-color:grey;
+}
+
+nav{
+    background-color:red;
+}
+
+footer{
+    background-color:red;
+}
+
+header{
+    color:green;
+    background-color: black;
+    padding: 20px 10px;
+}
+
+.app-title{
+   
+    font-family: 'Monoton', cursive;
+    text-align: center;
+    background-color: red;
+    padding: 20px 10px;
+}
+
+.main-table-container{
+
+    overflow: scroll;
+    max-height: 1000px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+th{
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    border-style: solid;
+}
+
+td{
+    border-style:dotted;
+    color:black;
+    text-align: center;
+    font-size: 15px;
+}
+
+.main-table p span{
+    font-weight: bold;
+    font-style: oblique;
+}
