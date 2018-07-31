@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- saved from url=(0150)https://s0.2mdn.net/5670230/1519504477852/18_WD_DPS_D_StockBurglarAlarm30_V1_EN_H5_728x90_INC/18_WD_DPS_D_StockBurglarAlarm30_V1_EN_H5_728x90_INC.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">		
+	
+	<title>TD Wealth Digital Banner</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="ad.size" content="width=728,height=90">
+	<script src="./easepack_1.19.0_be87087c08fcec83e2b64c70571fe91f_min.js.download"></script>
+	<script src="./cssplugin_1.19.0_cfbff7d208ccfdbe176b9855af1eb1fa_min.js.download"></script>
+	<script src="./tweenlite_1.19.0_422f021fad4c20f20cf3640a06ac39e9_min.js.download"></script>
+	<script src="./timelinelite_1.19.0_13e3bd0e510d63fd5e5ef9bf9dac7017_min.js.download"></script>
+	<style type="text/css">
+		* { padding: 0px; margin: 0px; }
+		img { border:0; }
+		.banner-size { width: 728px; height: 90px; }
+		#banner img, #banner div { position: absolute; }
+		.hide { opacity: 0; }
+		#banner { 
+			background: #f3faf3 url(background.jpg); 
+			cursor: pointer; 
+			overflow: hidden;
+			position: relative;
+		}
+		#green-bg { background: #f3faf3; width:160px; height: 533px; position: absolute; top:0; left:0; }
+		#legal2 { left: 118px; }		
+		#green-bg { background: #f3faf3; width:594px; height: 90px; position: absolute; top:0; left:0; }
+		#border-frame div { position: absolute; background: #d1d1d1; }
+		#border-frame-top { top: 0px; left: 0px; width: 728px; height: 1px; } 
+		#border-frame-right { top: 0px; left: 727px; width: 1px; height: 90px; }
+		#border-frame-bottom { top: 89px; left: 0px; width: 727px; height: 1px; }
+		#border-frame-left { top: 0px; left: 0px; width: 1px; height: 90px; }
+		.blurryFix {
+			-webkit-transform: translateZ(1);
+    		transform: translateZ(1);
+    		will-change: transform;
+		}
+		#cta {
+			left: 470px;
+   			top: 35px;
+			background-color: #c55415;
+			border-radius: 5px;
+			border: 0px;
+			padding: 3px 20px 0px 20px;
+		}
+		#cta img {
+			position: relative;
+		}
+		#cta:hover {
+			background-color: #71310A;
+		}
+	</style>
+	<script type="text/javascript">
+		var clickTag = "http://www.google.ca";
+		var legalOn = false;
+		function onClickTag(e){ window.open(window.clickTag); }
+		window.onload = function(){ 
+			var clickArea = document.getElementById("clickArea");
+			if (clickArea.addEventListener){
+				clickArea.addEventListener('click', onClickTag, false); 
+			} else if (clickArea.attachEvent){
+				clickArea.attachEvent('onclick', onClickTag);
+			}
+			var timeline = new TimelineLite();
+			timeline
+			.set("#banner", {autoAlpha:1})
+			.to(["#t1","#legal"], 1, {autoAlpha:1})
+			.to("#t1", 1, {autoAlpha:0}, "+=1.5")
+			.to("#t2", 1, {autoAlpha:1}, "+=0.5")
+			.to("#green-bg", 1, {autoAlpha:1}, "+=1.5")
+			.to("#legal", 1, {autoAlpha:0}, "-=0.5")
+			.to(["#t3","#legal2"], 1, {autoAlpha:1})
+			.to("#t4", 1, {autoAlpha:1})
+			.to(["#cta"], 1, {autoAlpha:1})
+		}
+	</script>
+<script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script></head>
+<body>
+	<div id="banner" class="hide banner-size" style="visibility: inherit; opacity: 1;">
+		<div id="clickArea" class="banner-size">
+			<img id="background" src="./background.jpg" alt="Family hiking up green grassy hill. TD Canada Trust Logo.">
+			<img id="t1" class="hide" src="./t1.png" alt="Over 30 ways to save on home &amp; car insurance." style="visibility: hidden; opacity: 0;">
+			<img id="t2" class="hide" src="./t2.png" alt="Like preferred rates for alumni and professionals." style="visibility: inherit; opacity: 1;">
+			<div id="green-bg" class="hide" style="visibility: inherit; opacity: 1;"></div>
+			<img id="t3" class="hide" src="./t3.png" alt="Get ready to save every dollar possible. Learn more today. " style="visibility: inherit; opacity: 1;">
+			<img id="t4" class="hide" src="./t4.png" alt="TD Insurance Savings Commitment" style="visibility: inherit; opacity: 1;">
+			<img id="legal" class="hide" src="./legal.png" alt="Conditions apply." style="visibility: hidden; opacity: 0;">
+			<img id="legal2" class="hide" src="./legal.png" alt="Conditions apply." style="visibility: inherit; opacity: 1;">
+			<div id="border-frame" class="banner-size">
+				<div id="border-frame-top"></div>
+				<div id="border-frame-left"></div>
+				<div id="border-frame-bottom"></div>
+				<div id="border-frame-right"></div>
+			</div>
+			<div id="cta" class="hide" style="visibility: inherit; opacity: 1;"><img id="cta-text" src="./cta.png" alt="Get a quote"></div>
+		</div>
+	</div>
+
+</body></html>

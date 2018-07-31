@@ -1,0 +1,66 @@
+<html>
+
+<body>
+
+<input type = "buttom" value = "Generate Table" onclick="generate_table()" ></input>
+
+</body>
+
+<script>
+
+function generate_table(){
+    //
+
+    var body = document.getElementsByTagName("body")[0];
+    var tbody = document.createElement("tbody");
+    var tbl = document.createElement("table");
+
+    tbl.border = 2;
+
+    for (var i = 0; i<2; ++i){
+       
+       var row = document.createElement("tr");
+
+       for (var j = 0; j < 2; ++j){
+
+           var cell = document.createElement("td");
+           var someText = document.createTextNode("Row " + i + ", Coloum " + j);
+        
+            //Target.addEventListener("event", handler)
+            // handler = function
+            cell.addEventListener("mouseover", function (){ this.style.backgroundColor = getColor() } );
+
+           cell.appendChild(someText)
+           row.appendChild(cell);
+
+       }
+
+       tbody.appendChild(row);
+
+    }
+
+    tbl.appendChild(tbody);
+    body.appendChild(tbl);
+}
+
+function getColor(){
+    var letters = "0123456789ABCDEF"
+    var color = '#';
+
+    for (var i = 0; i < 6; ++i){
+
+        //Math.random generates number between 0-1
+        // by mutiplying by 16 we get a number like 13.23
+        //then we floor it to get rid of the decimals
+
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+
+    return color;
+
+}
+
+</script>
+
+
+</html>
