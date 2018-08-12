@@ -1,0 +1,94 @@
+
+#radio_button_container{
+    display: block;
+   border-style: dotted;
+   text-align: left;
+    margin:auto;
+    width: 60%;
+  
+
+}
+
+body{
+    margin-right: 25%;
+    margin-left: 25%;
+    margin-top: 0%;
+    background-color: grey;
+}
+
+
+
+
+#Site_Title{
+   
+    padding: 25px 25px;
+    
+    color:white;
+    background-color: red;
+
+    border-radius: 25px;
+   
+}
+
+
+
+#Create_Account{
+    
+    width: 90%;
+    background-color:white;
+    height: 200x;
+    padding: 10px 10px;
+   
+    border-radius: 25px;
+}
+
+form{
+    background-color: white;
+    margin: 20px 20px;
+   
+    
+}
+
+label{
+
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+}
+
+input[type = "text"], input[type = "password"], select {
+    border-radius: 6px;
+    width: 60%;
+    margin: 1% 1%;
+}
+
+input[type= "textarea"] {
+    
+    width: 600px;
+    height: 150px;
+  }
+
+  input[type= "file"] {
+    
+  margin-left: 70px;
+  }
+
+
+ #Attachments label{
+
+    display: inline-block;
+    width: 10px;
+   
+}
+
+
+.Div_Title{
+    background-color: lightgray;
+    padding: 10px 10px;
+}
+
+
+#Basic_Information, #Education, #Work_Experience, #Attachments{
+    background-color: grey;
+   
+}
