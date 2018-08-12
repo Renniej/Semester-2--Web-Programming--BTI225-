@@ -57,9 +57,10 @@ label{
 }
 
 input[type = "text"], input[type = "password"], select {
-    border-radius: 6px;
+   
     width: 60%;
     margin: 1% 1%;
+
 }
 
 input[type= "textarea"] {
@@ -68,23 +69,42 @@ input[type= "textarea"] {
     height: 150px;
   }
 
+  input, select, textarea, #radio_button_container{
+    border: solid;
+    border-radius: 6px;
+  }
+
   input[type= "file"] {
-    
-  margin-left: 70px;
+  
+    margin-left: 70px;
+    width: 80%;
   }
 
 
- #Attachments label{
+ #Attachments label{ 
 
     display: inline-block;
     width: 10px;
    
 }
 
+#Attachments{
+    padding: 5% 5%;
+    padding-left: 15%;
+}
+
+
+
+
+
+i{
+    color: red;
+}
 
 .Div_Title{
     background-color: lightgray;
     padding: 10px 10px;
+    margin-bottom: 0px;
 }
 
 

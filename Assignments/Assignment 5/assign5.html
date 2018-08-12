@@ -28,20 +28,20 @@
             <form id = "signup">
 
             
-                
+                <h3 class = "Div_Title">Basic Information</h3>
                 <div id = "Basic_Information">
 
-                        <h3 class = "Div_Title">Basic Information</h3>
+                        
 
-                        <label> Email:</label> <input type="text" name="Email" required> <br>
-                        <label>Password</label> <input type = "password" name = "Password"required> <br>
-                        <label>Retype Password</label> <input type = "password" name = "Re_Password"required> <br>
-                        <label> First Name</label> <input type="text" name="First_Name" required> <br>
-                        <label> Last Name</label> <input type="text" name="Last_Name" required> <br>
-                        <label> Phone Number</label> <input type="text" name="Phone_Number" placeholder="999-999-9999" required> <br>
-                        <label>Address</label> <input type="text" name="Address"  required> <br>
+                        <label> Email<i>*</i></label> <input type="text" name="Email" required> <br>
+                        <label>Password<i>*</i></label> <input type = "password" name = "Password"required> <br>
+                        <label>Retype Password<i>*</i></label> <input type = "password" name = "Re_Password"required> <br>
+                        <label> First Name<i>*</i></label> <input type="text" name="First_Name" required> <br>
+                        <label> Last Name<i>*</i></label> <input type="text" name="Last_Name" required> <br>
+                        <label> Phone Number<i>*</i></label> <input type="text" name="Phone_Number" placeholder="999-999-9999" required> <br>
+                        <label>Address<i>*</i></label> <input type="text" name="Address"  required> <br>
                     
-                        <label>Province</label> 
+                        <label>Province<i>*</i></label> 
 
                         <select name = "Province">
                         <option value = "AL">Alberta</option>
@@ -56,7 +56,7 @@
                             <option value= "PE">Prince Edward Island</option>
                         </select> <br>
                         
-                        <label>Country</label> <input type="text" name="Country" list="countries" required> <br>
+                        <label>Country<i>*</i></label> <input type="text" name="Country" list="countries" required> <br>
 
                         <datalist id="countries">
                             <option value = "Canada"/>
@@ -67,16 +67,16 @@
                         </datalist>
                 </div> 
 
-            
+                <h3 class = "Div_Title">Education</h3>
                 <div id = "Education">
 
-                        <h3 class = "Div_Title">Education</h3>
+                       
 
-                        <label> School</label> <input type="text" name="School" required> <br>
-                        <label>Program</label> <input type = "text" name = "Program"required> <br>
+                        <label> School<i>*</i></label> <input type="text" name="School" required> <br>
+                        <label>Program<i>*</i></label> <input type = "text" name = "Program"required> <br>
                         
                     
-                        <label>Education Level</label> 
+                        <label>Education Level<i>*</i></label> 
 
                         <select name = "Education_Level">
                                 <option value = 0>-select-</option>
@@ -88,10 +88,10 @@
                         </select> <br>
                     
                        
-                        
+                        <label>Education Status</label> <br>
                         <div id = "radio_button_container">
 
-                        <label>Education Status</label> <br>
+                       
                         <input type = "radio" name = "Edu_Status" value = "Graduated"> <label>Graduated</label>  <br>
                         <input type = "radio" name = "Edu_Status" value = "Currently_Enrolled">  <label>Currently Enrolled</label>  <br>
                         <input type = "radio" name = "Edu_Status" value = "Graduated">  <label>Graduated</label>
@@ -102,17 +102,19 @@
                         <label>Graduation Date</label> <input type="text" name="Grad_Date"  required> 
                 </div> 
 
-
+                <h3 class = "Div_Title">Work Experience</h3>
                 <div id = "Work_Experience">
 
-                        <h3 class = "Div_Title">Work Experience</h3>
+                        
 
                         <label> Employer</label> <input type="text" name="Employer" > <br>
                         <label>Program</label> <input type = "text" name = "Program"> <br>
 
-                        <label>Job Duty</label> 
+                        <label>Job Title:</label> <input type = "text" name = "Worked_Year"> <br>
+                
+                        <label>Job Duty:</label> 
                         <textarea name = "Job_Duty"></textarea> <br>
-
+               
                         <label>Worked Year:</label> <input type = "number" name = "Worked_Year"> <br>
                         
                         <br>
@@ -121,10 +123,11 @@
                 </div> 
 
 
+                <h3 class = "Div_Title">Attachments:</h3>
 
                 <div id = "Attachments">
 
-                        <h3 class = "Div_Title">Attachments</h3>
+                       
 
                         <label> Attachments</label> <input type="file" name="Attachments" > 
 
