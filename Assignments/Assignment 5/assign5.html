@@ -4,67 +4,73 @@
  
 
 <head>
-
+         <script type="text/javascript" src="js/assign5.js"></script>
     <link rel= "stylesheet" href = "css/assign5.css" >
 
 </head>
 
 <body>
 
+
+
+        <h1 id = "Site_Title">
+                JobSearch.com
+        </h1>
   
    
    <div id = "Create_Account">
        
-        <h1 id = "Site_Title">
-                JobSearch.com
-        </h1>
 
-        <h3 id = "meta">Create Your Account</h3>
 
-        <h4 id = "meta">Required Information</h4>
+        <h3 id = "Create_Account_Header">Create Your Account</h3>
+
+        
 
   
 
-            <form id = "signup">
-
+            <form id = "signup" onsubmit="return submit()">
+                <h4 id = "Required_Info_Header">*Required Information</h4>
             
                 <h3 class = "Div_Title">Basic Information</h3>
                 <div id = "Basic_Information">
 
                         
 
-                        <label> Email<i>*</i></label> <input type="text" name="Email" required> <br>
-                        <label>Password<i>*</i></label> <input type = "password" name = "Password"required> <br>
-                        <label>Retype Password<i>*</i></label> <input type = "password" name = "Re_Password"required> <br>
-                        <label> First Name<i>*</i></label> <input type="text" name="First_Name" required> <br>
-                        <label> Last Name<i>*</i></label> <input type="text" name="Last_Name" required> <br>
-                        <label> Phone Number<i>*</i></label> <input type="text" name="Phone_Number" placeholder="999-999-9999" required> <br>
-                        <label>Address<i>*</i></label> <input type="text" name="Address"  required> <br>
+                       <div> <label> Email<i>*</i></label> <input type="text" name="Email" required>            </div>
+
+                        <div><label>Password<i>*</i></label> <input type = "password" name = "Password" id = "Password" onchange = "Check_Password('Password')" required> </div>
+                        <div><label>Retype Password<i>*</i></label> <input type = "password" name = "Password" id = "Re_Password" onchange = "Check_Password('Re_Password')" required></div> 
+                        <div><label> First Name<i>*</i></label> <input type="text" name="First_Name" id = "First_Name" onchange = "Check_Name('First_Name')" required></div> 
+                        <div><label> Last Name<i>*</i></label> <input type="text" name="Last_Name" id = "Last_Name" onchange = "Check_Name('Last_Name')" required></div> 
+                        <div><label> Phone Number<i>*</i></label> <input type="text" name="Phone_Number" id = "Phone_Number" onchange="Check_Phone()" placeholder="999-999-9999" required> </div>
+                        <div><label>Address<i>*</i></label> <input type="text" name="Address"  required> </div>
                     
-                        <label>Province<i>*</i></label> 
+                       <div> <label>Province<i>*</i></label> 
 
-                        <select name = "Province">
-                        <option value = "AL">Alberta</option>
-                        <option value = "ON">Ontario</option>
-                        <option value = "BC">British Columbia</option>
-                        <option value = "QC"> Quebec</option>
-                        <option value = "NS"> Nova Scotia</option>
-                        <option value = "NB">New Brunswick</option>
-                        <option value = "MB">Manitoba</option>
-                        <option value = "SK"> Saskatchewan</option>
-                        <option value = "NL">Newfoundland And Labrador</option>
-                            <option value= "PE">Prince Edward Island</option>
-                        </select> <br>
-                        
-                        <label>Country<i>*</i></label> <input type="text" name="Country" list="countries" required> <br>
+                                <select name = "Province">
+                                <option value = "AL">Alberta</option>
+                                <option value = "ON">Ontario</option>
+                                <option value = "BC">British Columbia</option>
+                                <option value = "QC"> Quebec</option>
+                                <option value = "NS"> Nova Scotia</option>
+                                <option value = "NB">New Brunswick</option>
+                                <option value = "MB">Manitoba</option>
+                                <option value = "SK"> Saskatchewan</option>
+                                        <option value = "NL">Newfoundland And Labrador</option>
+                                        <option value= "PE">Prince Edward Island</option>
+                                        </select> 
+                        </div>
+                                
+                        <div> <label>Country<i>*</i></label> <input type="text" name="Country" list="countries" required> 
 
-                        <datalist id="countries">
-                            <option value = "Canada"/>
-                            <option value = "The United States"/>
-                            <option value = "Mexico"/>
-                            <option value = "China"/>
-                            <option value = "South Korea"/>
-                        </datalist>
+                                <datalist id="countries">
+                                <option value = "Canada"/>
+                                <option value = "The United States"/>
+                                <option value = "Mexico"/>
+                                <option value = "China"/>
+                                <option value = "South Korea"/>
+                                </datalist>
+                        </div>
                 </div> 
 
                 <h3 class = "Div_Title">Education</h3>
@@ -72,8 +78,8 @@
 
                        
 
-                        <label> School<i>*</i></label> <input type="text" name="School" required> <br>
-                        <label>Program<i>*</i></label> <input type = "text" name = "Program"required> <br>
+                      <div>  <label> School<i>*</i></label> <input type="text" name="School" required></div>
+                       <div> <label>Program<i>*</i></label> <input type = "text" name = "Program"required> </div>
                         
                     
                         <label>Education Level<i>*</i></label> 
@@ -85,19 +91,20 @@
                                 <option value = "Master_Degree ">Master's Degree </option>
                                 <option value = "Other ">Other</option>
     
-                        </select> <br>
+                        </select> 
                     
                        
-                        <label>Education Status</label> <br>
-                        <div id = "radio_button_container">
-
                        
-                        <input type = "radio" name = "Edu_Status" value = "Graduated"> <label>Graduated</label>  <br>
-                        <input type = "radio" name = "Edu_Status" value = "Currently_Enrolled">  <label>Currently Enrolled</label>  <br>
-                        <input type = "radio" name = "Edu_Status" value = "Graduated">  <label>Graduated</label>
+                        <div id = "radio_button_container">
+                        
+                        <label>Education Status</label>  
+                       
+                       <li> <input type = "radio" name = "Edu_Status" value = "Graduated"> <label>Graduated</label></li>
+                       <li> <input type = "radio" name = "Edu_Status" value = "Currently_Enrolled">  <label>Currently Enrolled</label></li>
+                       <li><input type = "radio" name = "Edu_Status" value = "Non_Graduate">  <label>Did not Graduate</label></li>
                         </div>
 
-                        <br>
+                     
                         
                         <label>Graduation Date</label> <input type="text" name="Grad_Date"  required> 
                 </div> 
@@ -107,19 +114,16 @@
 
                         
 
-                        <label> Employer</label> <input type="text" name="Employer" > <br>
-                        <label>Program</label> <input type = "text" name = "Program"> <br>
+                       <div> <label> Employer</label> <input type="text" name="Employer" > </div>
+                       <div> <label>Program</label> <input type = "text" name = "Program">  </div>
 
-                        <label>Job Title:</label> <input type = "text" name = "Worked_Year"> <br>
+                        <div> <label>Job Title:</label> <input type = "text" name = "Worked_Year"></div>
                 
-                        <label>Job Duty:</label> 
-                        <textarea name = "Job_Duty"></textarea> <br>
+                        <div id = "Job_Duty"> <label>Job Duty:</label> <textarea name = "Job_Duty"></textarea> </div>
                
-                        <label>Worked Year:</label> <input type = "number" name = "Worked_Year"> <br>
+                        <div> <label>Worked Year:</label> <input type = "number" name = "Worked_Year"> </div>
                         
-                        <br>
                         
-                      
                 </div> 
 
 
@@ -129,12 +133,17 @@
 
                        
 
-                        <label> Attachments</label> <input type="file" name="Attachments" > 
+                        <label> Attachments</label> <input type="file" name="Attachments" multiple> 
 
                         
                       
                 </div> 
 
+        <div id= "Buttons">
+                <input type="reset">
+
+                <input type="submit" value="submit" onclick="return Submit();" />
+        </div>
             
             </form>
 
